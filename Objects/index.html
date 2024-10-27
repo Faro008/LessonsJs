@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            border: none;
+        }
+
+        *,
+        *::before,
+        *::after 
+        {
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Objects</h1>
+    <h2>JavaScript-объекты</h2>
+    <p>
+        const car = {type: Fiat, model: 500, color: white};
+        document.getElementById('intro').innerHTML = 'Модель машины: '+car.model+', цвет: '+car.color;
+    </p>
+    <h2>В этом примере создается пустой объект JavaScript, а затем добавляются 4 свойства:</h2>
+    <p>
+        const person = {};
+        person.name = 'John Doe';
+        person.age = 30;
+        person.city = 'New York';
+        intro.innerHTML = 'Имя: '+person.name+', возраст: '+person.age+', город: '+person.city;
+    </p>
+    <h2>Использование нового ключевого слова</h2>
+    <p>
+        const person = new Object();
+        person.name = 'John Doe';
+        person.age = 30;
+        person.city = 'New York';
+        intro.innerHTML = 'Имя: '+person.name+', возраст: '+person.age+', город: '+person.city;
+    </p>
+    <h2>Методы — это действия , которые можно выполнять над объектами.</h2>
+    <h2>Методы — это определения функций, хранящиеся в виде значений свойств</h2>
+    <p>const person = {
+        firstName: "John",
+        lastName: "Doe",
+        id: 5566,
+        fullName: function() {
+            return this.firstName + " " + this.lastName;
+        }
+        };</p>
+        <h2>Объекты JavaScript изменяемы</h2>
+        <p>
+            const person = {
+                firstName: "John",
+                lastName: "Doe",
+                age:50,
+                eyeColor: "blue"
+            };
+              // Create a Copy
+            const x = person;
+
+              // Change Age
+            x.age = 10;
+            document.getElementById("demo").innerHTML =
+            person.firstName + " is " + person.age + " years old.";
+        </p>
+    <p id="intro"></p>
+    <script>
+        const intro = document.getElementById('intro');
+        //Создайте объект:
+        const car = {
+            type: 'Fiat',
+            model: 500,
+            color: 'white',
+        };
+
+        //Добавьте свойства к объекту:
+
+        const person = {};
+        person.name = 'John Doe';
+        person.age = 30;
+        person.city = 'New York';
+
+        // Create an Object
+        const personRom = new Object();
+        personRom.name = 'Фадеев Роман';
+        personRom.age = 30;
+        personRom.city = 'Воронеж';
+        // Create an Object
+        const perSon = {
+            firstName: 'Roman',
+            lastName: 'Fadeev',
+            id: 5566,
+            fullName: function(){
+                return this.firstName +' ' + this.lastName;
+            }
+        }
+        const persona = {
+            firstName: 'John',
+            lastName: 'Doe',
+            age: 50,
+            eyeColor: 'blue',
+        }
+
+        const x = persona;
+        x.firstName = 'Natali';
+        x.age = 25;
+        intro.innerHTML = 'Модель: ' + car.type + " " + car.model + ' цвет: ' + car.color + '<br>' + 'Name: ' + person.name + 'age ' + person.age + ' city ' + person.city + '<br>' + 'Имя: ' + personRom.name + ' Возраст: ' + personRom.age + ' город: ' + personRom.city + '<br>' + perSon.fullName() + '<br>' + 'Name: ' + x.firstName + ' age: ' + x.age + ' eye: ' + x.eyeColor;
+        intro.style = "color: red; text-align: center;"
+    </script>
+</body>
+</html>
