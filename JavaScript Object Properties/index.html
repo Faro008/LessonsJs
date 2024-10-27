@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Свойства объекта JavaScript</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            border: none;
+        }
+
+        *,
+        *::before,
+        *::after 
+        {
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        p {
+            padding: 10px 100px;
+            color: yellowgreen;
+        }
+        h2 {
+            color: blue;
+        }
+        h1 {
+            color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <h1>Свойства объекта JavaScript</h1>
+    <h2>Доступ к свойству с помощью выражения</h2>
+    <p>const person = {
+        firstName: "John",
+        lastName : "Doe",
+        age      :  50
+        };
+        let x = "firstName";
+        let y = "age";
+        document.getElementById("demo").innerHTML = person[x] + " is " + person[y] + " years old.";</p>
+        <h2>Доступ к свойству с помощью []</h2>
+        <p>const person = {
+            firstname: "John",
+            lastname: "Doe",
+            age: 50,
+            eyecolor: "blue"
+            };
+            document.getElementById("demo").innerHTML = person["firstname"] + " is " + person["age"] + " years old.";</p>
+    <p id="intro"></p>
+    <script>
+        const intro = document.getElementById("intro");
+        const person1 = {
+            firstName: "John",
+            lastName : "Doe",
+            age      :  50
+        };
+        let x1 = "firstName";
+        let y1 = "age";
+
+        //Access a Property with []
+        const person2 = {
+            firstName: "John",
+            lastName: "Doe",
+            age: 50,
+            eyeColor: "blue"
+        }
+
+        intro.innerHTML = `Person's name is ${person1[x1]}, and he is ${person1[y1]} years old.` + '<br>' + 'Persons name is ' + person1[x1] + ', ' + 'and he is ' + person1[y1] + '<br>' + person2['firstName'] + ' is ' + person2['age'];
+        intro.style = " color: red; font-size: 1.5em;"
+    </script> 
+</body>
+</html>
