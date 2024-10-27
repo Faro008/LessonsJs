@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #intro{
+            color: red;
+        }
+        body{
+            text-align: center;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main" id="main">
+    <h1 class="title__h1">В этом уроке вы узнаете, как находить и получать доступ к HTML-элементам на HTML-странице</h1>
+    <h2>Поиск HTML-элемента по ID</h2>
+    <p id="text">"document.getElementById('*.*')"</p>
+    <h2>Поиск HTML-элементов по имени тега</h2>
+    <span>'document.getElementsByTagName(*.*)'</span>
+    <h2>В этом примере выполняется поиск элемента с id="main", а затем поиск всех 'p' элементов внутри "main"</h2>
+    <p>'const x = document.getElementById("main")'<br> "const y =x.getElementsByTagName('p')"</p>
+    <h2>Поиск HTML-элементов по имени класса</h2>
+    <p class="text">"const classText = document.getElementByClassName('*.*')"</p>
+    <h2>Поиск HTML-элементов с помощью селекторов CSS</h2>
+    <p>const cssAll = document.querySelectorAll(.*)</p>
+    <h2>Поиск HTML-элементов с помощью коллекций HTML-объектов</h2>
+    <p>"const htmlCollection =document.forms['IdForm']"</p>
+    <p>"let text = ''; <br>
+        for(let i = 0; i < htmlCollection.length; i++){
+            text += htmlCollection[i].name + ':' + htmlCollection[i].value + <br>}"
+    </p>
+    <form action="/" id="IdForm">
+        Имя: <input type="text" name="Имя" value="Roman"><br>
+        Фамилия: <input type="text" name="Фамилия" value="Fadeev"><br>
+        <input type="submit" value="Submit">
+    </form>
+    <h2>Также доступны следующие HTML-объекты (и коллекции объектов):</h2>
+    <p> 
+        document.anchors<br>
+        document.body<br>
+        document.documentElement<br>
+        document.embeds<br>
+        document.forms<br>
+        document.head<br>
+        document.images<br>
+        document.links<br>
+        document.scripts<br>
+        document.title<br>
+    </p>
+    <p id="intro"></p>
+    </div>
+    <script>
+    const element = document.getElementById('intro');
+    const id = document.getElementById('text');
+    const TagName = document.getElementsByTagName('span');
+    const x = document.getElementById('main');
+    const y = x.getElementsByTagName('p');
+    const classText = document.getElementsByClassName('text');
+    const cssAll = document.querySelectorAll('h2');
+    const htmlCollection = document.forms['IdForm'];
+    let text = '';
+    for (let i = 0; i < htmlCollection.length; i++){
+        text += htmlCollection[i].name + ':'+ htmlCollection[i].value + '<br>';
+    }
+    let q;
+    myFunc = () =>{
+        q = 5 + 2;
+        console.log(q);
+    }
+    myFunc();
+    for (let i = 0; i < cssAll.length; i++){ 
+        cssAll[i].style = "color: red; background: blue; border: 1px solid #000";       
+    }
+    for ( let i = 0; i < y.length; i++){
+        y[i].style = "border: 1px solid #000; background-color: yellow;";
+        y[i].style.fontWeight = '700';
+        y[i].style.fontStyle = 'italic';
+    }
+    TagName[0].style = "background-color: green; width: 100%; display: block; padding: 15px 0; font-size: 1.5em; font-style: italic;";
+    x.style = "padding: 60px 30px;"
+    console.log(y[1]);
+    console.log(TagName[0]);
+    console.log(id);
+    console.log(classText[0]);
+    console.log(cssAll);
+    console.log(htmlCollection);
+    element.innerHTML = id.innerHTML + "; "  + TagName[0].innerHTML + "; " + y[1].innerHTML + '; ' + classText[0].innerHTML + '; ' + cssAll[2].innerHTML + '; ' + text + "; " + 'Число из функции' + q;
+    </script>
+</body>
+</html>

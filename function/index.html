@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FunctionJs</title>
+    <style>
+        .dipBlock{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #333;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="button">
+            <button type="button" onclick="functionOffBlock()">Press my</button>
+            <button type="button" onclick="functionOnBlock()">Press my</button>
+        </div>
+        <h1>Функции JS</h1>
+        <h2>Вызов функции, которая выполняет расчет и возвращает результат</h2>
+        <p>"function MyFunction(p1,p2){<br>
+            return p1*p2;<br>
+            }<br>
+            let result = MyFunction(3,4);<br>
+            document.getElementById('intro').innerHTML = 'Результат: '+result;"
+        </p>
+        <h2>Обявление переменных и функции</h2>
+        <p>// Об]явление переменных и функции<br>
+            let text = ""; //объявление переменной в не функции с пустой строкой<br>
+            function main(){<br>
+                let carName = "Volvo"; //объявление переменной в функции<br>
+                text += "Inside: " + typeof carName + " " + carName;<br>
+            }<br>
+            // Использование переменных и функции внутри другой функции<br>
+            let textMain = 'Моя функция '<br>
+            function myFunctionMain(){<br>
+                main(); // Вызов функции внутри функции<br>
+                textMain += text;<br>
+            }<br>
+            myFunctionMain(); // Вызов функции<br>
+            document.getElementById('intro').innerHTML = 'Результат: '+ result + '; ' + text +'; ' + textMain;</p>
+            <p id="intro"></p>
+    </div>
+    <div class="dipBlock">
+        <div class="button">
+            <button type="button" onclick="functionOffBlock()">Press my</button>
+            <button type="button" onclick="functionOnBlock()">Press my</button>
+        </div>
+        <p id="testF"></p>
+    </div>
+<script>
+    let intro = document.getElementById('intro');
+    const mainDiv = document.getElementsByClassName('main');
+    const testFad = document.getElementById('testF');
+     //Функции кнопок
+    let introOff = '';
+    
+    functionOffBlock = () =>{
+        introOff = true;
+        testF();// Перезапускаем функцию
+    }
+    functionOnBlock = () =>{
+        introOff = false;
+        testF();// Перезапускаем функцию
+    }
+    
+    //Проверка условия перед запуском функции
+    testF = () =>{   
+        if(Boolean(intro) && !Boolean(introOff)){
+    // Обявление переменной и функции, которая выполняет расчет и возвращает результат
+    function MyFunction(p1, p2){
+        return p1*p2;
+    }
+    let result = MyFunction(3,4);
+
+    // Об]явление переменных и функции
+    let text = ""; //объявление переменной в не функции с пустой строкой
+    function main(){
+        let carName = "Volvo"; //объявление переменной в функции
+        text += "Inside: " + typeof carName + " " + carName;
+    }
+    // Использование переменных и функции внутри другой функции
+    let textMain = 'Моя функция '
+    function myFunctionMain(){
+        main(); // Вызов функции внутри функции
+        textMain += text;
+    }
+    myFunctionMain(); // Вызов функции
+    
+    intro.innerHTML = 'Результат: '+ result + '; ' + '<br>' + text +'; ' + '<br>' + textMain;
+    intro.style = " border: .5em solid blue; color: red; text-align: center; text-style: italic; font-weight: 900; font-size: 1.5em; padding: .5em; background: yellow "
+    mainDiv[0].style = "display: flex; flex-direction: column; align-items: center; background: #ccc;"
+    document.getElementsByClassName('dipBlock')[0].style = "display: none"
+        }
+    else{
+        mainDiv[0].style = "display: none;";
+        document.getElementsByClassName('dipBlock')[0].style = "display: flex"
+        testFad.innerHTML = 'Пошел нах!!!';
+        testFad.style = "text-align: center; color: red; font-size: 4.5em;"
+        }
+    }        
+    testF();
+</script>    
+</body>
+</html>

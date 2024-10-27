@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="h1">Lesson #1</h1>
+    <p id="demo">Мой первый урок JS.</p>
+    <button type="button" onclick="document.getElementById('demo').innerHTML = 'Мой первый скрипт'; document.getElementById('demo').style.color = 'red'; document.getElementById('demo').style.fontSize ='1.5em'; ">Нажми меня!!! </button>
+    <button type="button" onmouseover="MyFunction()"; onmouseout="main()">Измени заголовок!!!</button>
+    <script>
+        
+        MyFunction = () => {
+            
+            Host = document.getElementById('h1');
+            Host.innerHTML = "Измененный заголовок!";
+            Host.style = "color: red; border: 1px solid blue;";
+            Host.style.fontSize = '52px';
+            console.log(Host);
+        }
+        main = () =>{
+            Host = document.getElementById('h1');
+            Host.innerHTML = "Lesson #1";
+            Host.style = "";
+            Host.style.fontSize = '36px';
+            console.log(Host);
+        }
+        
+    </script>
+</body>
+</html>
