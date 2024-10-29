@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отображение объектов JavaScript</title>
+    <style>*{
+        padding: 0px;
+        margin: 0px;
+        border: none;
+    }
+
+    *,
+    *::before,
+    *::after 
+    {
+        box-sizing: border-box;
+    }
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    p {
+        padding: 10px 100px;
+        color: yellowgreen;
+    }
+    h2 {
+        color: blue;
+    }
+    h1 {
+        color: aquamarine;
+    }
+    </style>
+</head>
+<body>
+    <h1>Отображение объектов JavaScript</h1>
+    <h2>Как отображать объекты JavaScript?</h2>
+    <p>Отображение объекта JavaScript выведет [object Object]</p>
+    <h2>Вот некоторые решения для отображения объектов JavaScript:</h2>
+    <ul>
+        <li>Отображение свойств объекта по имени</li>
+        <li>Отображение свойств объекта в цикле</li>
+        <li>Отображение объекта с помощью Object.values()</li>
+        <li>Отображение объекта с помощью JSON.stringify()</li>
+    </ul>
+    <h2>Отображение свойств объекта</h2>
+    <p>Свойства объекта могут быть отображены в виде строки:</p>
+    <h2>Отображение свойств в цикле</h2>
+    <p>Свойства объекта можно собрать в цикле:</p>
+    <h2>Использование Object.values()</h2>
+    <p>Object.values()создает массив из значений свойств:</p>
+    <h2>Использование Object.entries()</h2>
+    <p>Object.entries()упрощает использование объектов в циклах:</p>
+    <p id="intro"></p>
+</body>
+<script>
+    const intro = document.getElementById('intro');
+    //Отображение объекта JavaScript выведет [object Object]
+    //Пример
+    const person = {
+        firstName: 'John',
+        lastName: 'Doe',
+        age: 30
+    };
+    //Свойства объекта могут быть отображены в виде строки:
+    //Пример
+    const personFirst = {
+        firstName: 'John',
+        lastName: 'Doe',
+        age: 30
+    }
+    //Свойства объекта можно собрать в цикле:
+    //Пример
+    const personTwo = {
+        firstName: 'Roman',
+        lastName: 'Fadeev',
+        age: 30,
+        id: 1234,
+    }
+    let text = '';
+    for( i in personTwo) {
+        text += i + ':' + personTwo[i] + '<br>';
+    }
+    //Использование Object.values()
+    //Object.values()создает массив из значений свойств:
+    //Пример
+    const personThree = {
+        firstName: 'Natali',
+        lastName: 'Rakova',
+        age: 30,
+        id: 1234,
+    }
+    const myArray = Object.values(personThree);
+    //Использование Object.entries()
+    //Object.entries()упрощает использование объектов в циклах:
+    //Пример
+    const personFour = {
+        firstName: 'Roman',
+        lastName: 'Fadeev',
+        age: 30,
+        id: 1234,
+    };
+    let text1 = '';
+    for(let[id, name] of Object.entries(personFour)) {
+        text1 += id + ':' + name + '<br>';
+    }
+
+    intro.innerHTML = 'Отображение объекта JavaScript выведет [object Object]' + '<br>' + person + '<br>' + 'Свойства объекта могут быть отображены в виде строки:' + '<br>' + personFirst.firstName + ' ' + personFirst.lastName + ' ' + personFirst.age + '<br>' + 'Свойства объекта можно собрать в цикле:' + '<br>' + text + '<br>' + 'Object.values()создает массив из значений свойств:' + '<br>' + myArray + '<br>' + 'Object.entries()упрощает использование объектов в циклах:' + '<br>' + text1 + '<br>';
+    intro.style = "font-size: 1.5em; color: red; text-align: center;"
+</script>
+</html>

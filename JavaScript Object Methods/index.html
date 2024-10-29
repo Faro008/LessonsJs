@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Методы объектов JavaScript</title>
+    <style>*{
+        padding: 0px;
+        margin: 0px;
+        border: none;
+    }
+
+    *,
+    *::before,
+    *::after 
+    {
+        box-sizing: border-box;
+    }
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    p {
+        padding: 10px 100px;
+        color: yellowgreen;
+    }
+    h2 {
+        color: blue;
+    }
+    h1 {
+        color: aquamarine;
+    }</style>
+</head>
+<body>
+    <h1 id="h1"></h1>
+    <h2 id="h2__01"></h2>
+    <p id="p__01"></p>
+    <h2 id="h2__02"></h2>
+    <p id="p__02"></p>
+    <h2 id="h2__03"></h2>
+    <p id="p__03"></p>
+    <p id="intro"></p>
+    <script>
+        const intro = document.getElementById('intro');
+        const h1 = document.getElementById('h1');
+        const h2__01 = document.getElementById('h2__01');
+        const p__01 = document.getElementById('p__01');
+        h1.innerHTML = 'Методы объектов JavaScript';
+        h2__01.innerHTML = 'Методы работают с объектами';
+        p__01.innerHTML = 'Если вы вызовете свойство fullName с помощью (), оно будет выполнено как функция';
+        //Если вы вызовете свойство fullName с помощью (), оно будет выполнено как функция
+        //Пример
+        const person = {
+            firstName: 'Roman',
+            lastName: 'Fadeev',
+            age: '53',
+            id: 1010, 
+            fullName: function(){return this.firstName +' ' + this.lastName;
+            }
+        };
+        document.getElementById('h2__02').innerHTML = 'Добавление метода к объекту';
+        document.getElementById('p__02').innerHTML = 'Добавить новый метод к объекту легко:';
+        //Добавление метода к объекту
+        //Пример
+        //В этом примере используется метод JavaScript toUpperCase()для преобразования текста в верхний регистр
+        const personFirst = {lastName: 'Natali', FirstName: 'Rakova', age: 53, id: 1100,}
+        personFirst.name = function(){ return (this.FirstName + ' ' + this.lastName).toUpperCase()}
+        document.getElementById('h2__03').innerHTML = 'Использование методов JavaScript';
+        document.getElementById('p__03').innerHTML = 'В этом примере используется метод JavaScript toUpperCase()для преобразования текста в верхний регистр';
+        intro.innerHTML = person.fullName() + '<br>' + personFirst.name() + '<br>';
+        intro.style = "font-size: 1.5em; color: red; text-align: center;"
+    </script>
+</body>
+</html>
