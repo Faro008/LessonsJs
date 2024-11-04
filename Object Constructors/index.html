@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конструкторы объектов JavaScript</title>
+    <style>*{
+        padding: 0px;
+        margin: 0px;
+        border: none;
+    }
+
+    *,
+    *::before,
+    *::after 
+    {
+        box-sizing: border-box;
+    }
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    p {
+        padding: 10px 100px;
+        color: yellowgreen;
+    }
+    h2 {
+        color: blue;
+    }
+    h1 {
+        color: aquamarine;
+    }
+    </style>
+</head>
+<body>
+    <h1>Конструкторы объектов JavaScript</h1>
+    <h2>Функции конструктора объектов</h2>
+    <ul>
+        <li>Иногда нам необходимо создать много объектов одного типа </li>
+        <li>Для создания типа объекта мы используем функцию конструктора объекта .</li>
+        <li>Хорошей практикой считается давать функциям-конструкторам имена, начинающиеся с заглавной буквы.
+        </li>
+    </ul>
+    <p>Теперь мы можем использовать new Person() для создания множества новых объектов Person:</p>
+    <h2>Значения свойств по умолчанию</h2>
+    <p>Значение , присвоенное свойству, будет значением по умолчанию для всех объектов, созданных конструктором:</p>
+    <h2>Добавление свойства к объекту</h2>
+    <p>Добавить свойство к созданному объекту легко:</p>
+    <h2>Добавление свойства в конструктор</h2>
+    <p>Чтобы добавить новое свойство, необходимо добавить его в прототип функции конструктора:</p>
+    <h2>Добавление метода к объекту</h2>
+    <p>Добавить метод к созданному объекту просто:</p>
+    <p id="intro"></p>
+    <script>
+        const intro = document.getElementById('intro');
+        //Тип объекта Человек
+        function Person(first, last, age, eye){
+            this.firstName = first;
+            this.lastName = last;
+            this.age = age;
+            this.eyeColor = eye;
+        }
+        const mySon = new Person('Artem', 'Fadeev', 14, 'grey');
+        //Пример
+        function PersonTwo(first, last,age){
+            this.firstName = first;
+            this.lastName = last;
+            this.age = age;
+        }
+        const sonArtem = new PersonTwo('Artem', 'Fadeev', 15);
+        const sonKirill = new PersonTwo('Kirill', 'Fadeev', 26);
+        //Объявление свойства по умолчанию
+        function Per(first, last, age){
+            this.firstName = first;
+            this.lastName = last;
+            this.age = age;
+            this.national = "Russian";
+        }
+        const myPer = new Per('Artem', 'Fadeev', 14);
+        //Добавление свойства к объекту
+        function PerK(first, last, age){
+            this.firstName = first;
+            this.lastName = last;
+            this.age = age;
+        }
+        const myPerK = new PerK('Kirill', 'Fadeev', 26);
+        myPerK.national = 'Russian';
+        //Добавление свойства в конструктор
+        function PerPrototip(first, last, age){
+            this.firstName = first;
+            this.lastName = last;
+            this.age = age;
+        }
+        const Natali = new PerPrototip ('Natali', 'Rakova', 25);
+        PerPrototip.prototype.national = "Russian";
+        //Добавление метода к объекту
+        function PerPrototipMethod(first, last, age){
+            this.firstName = first;
+            this.lastName = last;
+            this.age = age;
+        }
+        PerPrototipMethod.prototype.fullName = function(){
+            return this.firstName +'' + this.lastName;
+        }
+        const NataliMethod = new PerPrototipMethod ('Natali', 'Rakova', 25);
+         //Добавление метода к объекту
+        function ObjektMethod(first, last, age){
+            this.firstName = first;
+            this.lastName = last;
+            this.age = age;
+        }
+        const NataliRakova = new ObjektMethod('Nat','Rak',25);
+        NataliRakova.changeName = function(nata){
+            this.firstName = nata;
+        }
+        NataliRakova.changeName ("Nata");
+        intro.innerHTML = '<i>'+"Тип объекта Человек"+'</i>' + "<br>" +        
+            `Имя: ${mySon.firstName}, <br> Фамилия: ${mySon.lastName},<br> Возраст: ${mySon.age}<br>Глаза: ${mySon.eyeColor}<br> ` + '<i>'+"Мои дети"+'</i>' + "<br>" + sonArtem.firstName + ', ' + sonKirill.firstName + '<br>' + '<i>'+"Объявление свойства по умолчанию"+'</i>' + '<br>' + `${myPer.firstName}, <br> ${myPer.national} <br>` + '<i>'+"Добавление свойства к объекту"+'</i>' + '<br>' + myPerK.firstName +'<br>'+ myPerK.national + '<br>' + '<i>'+"Добавление свойства в конструктор"+'</i>' + "<br>" + `${Natali.national}, <br> ${Natali.firstName}, <br>` + '<i>' + 'Добавление метода к объекту:' + '</i>' + '<br>' + NataliRakova.firstName + '<br>' ;
+        
+    </script>
+</body>
+</html>
