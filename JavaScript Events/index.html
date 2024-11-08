@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>События JavaScript</title>
+    <style>*{
+        padding: 0px;
+        margin: 0px;
+        border: none;
+    }
+
+    *,
+    *::before,
+    *::after 
+    {
+        box-sizing: border-box;
+    }
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    p {
+        padding: 10px 100px;
+        color: yellowgreen;
+    }
+    h2 {
+        color: blue;
+    }
+    h1 {
+        color: aquamarine;
+    }
+    .button button:hover{
+        cursor: pointer;
+    }
+    </style>
+</head>
+<body>
+    <div class="container" style="display: flex; flex-direction: column; align-items: center;">
+    <h1>События JavaScript</h1>
+    <h2>HTML-события</h2>
+    <p>В следующем примере onclickатрибут (с кодом) добавляется к элементу:</p>
+    <div class="button">
+        <button id="myButton" type="button" onclick="myFunction()">Нажми на меня 
+        </button>
+    </div>
+    <p>Пример</p>
+    <div class="button">
+        <button id="myButton" type="button" onclick="this.innerHTML = Date()">Нажми на меня 
+        </button>
+    </div>
+    <p id="intro"></p>
+    </div>
+    <script>
+        //Пример
+        const intro = document.getElementById('intro');
+        const button = document.querySelectorAll('#myButton');
+        let text = 'Fadeev ';
+        function myFunction(){
+            text += Date();
+            text += ' Roman';
+            console.log(text);
+            test();
+        }
+        
+        test = () =>{
+        intro.innerHTML = text;
+    }
+    button.forEach (function(item) {
+        
+        let x = item;
+        x.style.border = '2px solid blue';
+        console.log(x);
+});
+
+    
+    </script>
+</body>
+</html>
